@@ -18,7 +18,7 @@ PREPARE_STORAGE_CONFIG="sudo apt-get install -y autoconf binutils-dev bison cmak
     libzmq3-dev git gcc libpq-dev libssl-dev cmake \
     openssl libffi-dev zlib1g-dev net-tools && \
     cd projects && \
-    git clone https://github.com/utsaslab/dinomo.git DINOMO && \
+    git clone https://github.com/Harvey-13/dinomo.git DINOMO && \
     cp /home/${REMOTE_USER_NAME}/dinomo-config.yml /home/${REMOTE_USER_NAME}/projects/DINOMO/conf/ && \
     cd DINOMO/common/scripts && sudo ./install-dependencies.sh g++ && \
     cd ../../ && bash scripts/build.sh -bRelease -j8 -g;"

@@ -17,7 +17,7 @@ RUN apt-get install -y python3-pip
 RUN pip3 install awscli cloudpickle zmq protobuf==3.19.4 boto3 kubernetes six
 
 # Clone the repo of DINOMO project.
-RUN git clone https://github.com/utsaslab/dinomo.git DINOMO
+RUN git clone https://github.com/Harvey-13/dinomo.git DINOMO
 
 # Create and populate DINOMO project context
 ENV DINOMO_HOME /DINOMO

@@ -18,20 +18,21 @@ PREPARE_CLUSTER_CONFIG="sudo sysctl -w net.ipv4.ip_forward=1 && sudo ufw disable
 retVal=""
 
 PREPARE_IB_CONFIG() {
-    retVal="mkdir -p projects/downloads && cd projects/downloads && \
-        wget http://content.mellanox.com/ofed/MLNX_OFED-4.9-0.1.7.0/MLNX_OFED_LINUX-4.9-0.1.7.0-ubuntu18.04-x86_64.tgz && \
-        tar xvf MLNX_OFED_LINUX-4.9-0.1.7.0-ubuntu18.04-x86_64.tgz && \
-        cd MLNX_OFED_LINUX-4.9-0.1.7.0-ubuntu18.04-x86_64 && \
-        sudo ./mlnxofedinstall --without-neohost-backend --without-neohost-sdk --force && \
-        sudo bash -c 'echo \"auto ib0\" >> /etc/network/interfaces' && \
-        sudo bash -c 'echo \"iface ib0 inet static\" >> /etc/network/interfaces' && \
-        sudo bash -c 'echo \"address 10.0.0.$1\" >> /etc/network/interfaces' && \
-        sudo bash -c 'echo \"netmask 255.255.255.0\" >> /etc/network/interfaces' && \
-        sudo bash -c 'echo \"broadcast 10.0.0.255\" >> /etc/network/interfaces' && \
-        sudo /etc/init.d/openibd restart && \
+#       "mkdir -p projects/downloads && cd projects/downloads && \
+#        wget http://content.mellanox.com/ofed/MLNX_OFED-4.9-0.1.7.0/MLNX_OFED_LINUX-4.9-0.1.7.0-ubuntu18.04-x86_64.tgz && \
+#        tar xvf MLNX_OFED_LINUX-4.9-0.1.7.0-ubuntu18.04-x86_64.tgz && \
+#        cd MLNX_OFED_LINUX-4.9-0.1.7.0-ubuntu18.04-x86_64 && \
+#        sudo ./mlnxofedinstall --without-neohost-backend --without-neohost-sdk --force && \
+#        sudo bash -c 'echo \"auto ib0\" >> /etc/network/interfaces' && \
+#        sudo bash -c 'echo \"iface ib0 inet static\" >> /etc/network/interfaces' && \
+#        sudo bash -c 'echo \"address 10.0.0.$1\" >> /etc/network/interfaces' && \
+#        sudo bash -c 'echo \"netmask 255.255.255.0\" >> /etc/network/interfaces' && \
+#        sudo bash -c 'echo \"broadcast 10.0.0.255\" >> /etc/network/interfaces' && \
+        retVal= "sudo /etc/init.d/openibd restart && \
         sudo modprobe -a mlx4_core mlx4_ib mlx4_en mlx5_core mlx5_ib \
         mlx5_fpga_tools ib_umad ib_uverbs ib_ipoib rdma_cm ib_ucm rdma_ucm;"
 }
+
 
 #PREPARE_IB_CONFIG() {
 #    retVal="mkdir -p projects/downloads && cd projects/downloads && \

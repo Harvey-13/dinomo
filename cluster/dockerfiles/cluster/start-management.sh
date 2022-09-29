@@ -5,7 +5,7 @@ IP=`hostname -I | awk '{print $1}'`
 
 cd $DINOMO_HOME
 
-git pull https://github.com/utsaslab/dinomo.git
+git pull https://github.com/Harvey-13/dinomo.git
 
 cd client/python && python3.6 setup.py install --prefix=$HOME/.local
 
